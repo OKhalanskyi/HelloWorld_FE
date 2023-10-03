@@ -1,0 +1,27 @@
+name: Continuous integration
+on:
+  push:
+    branches: [ dev, main ]
+  pull_request:
+    branches: [ dev, main ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm install
+      - name: production build
+        run: npm run build
+        if: always()
+      - name: run linter
+        run: npm run lint
+        if: always()
