@@ -1,8 +1,14 @@
 import Router from '@/app/router/Router.tsx';
+import { useTheme } from '@/app/theme/useTheme.ts';
 
 function App() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <div className="bg-red-400 text-3xl font-bold underline">
+    <div className="text-3xl font-bold underline dark:bg-black">
+      <button onClick={toggleTheme}>
+        {theme}
+      </button>
       <Router />
     </div>
   );
