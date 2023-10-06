@@ -5,7 +5,7 @@ import Footer from '@/components/Footer/Footer.tsx';
 function App() {
   return (
     <div className="flex flex-col min-h-screen justify-between">
-      <div className="px-4 md:px-5 lg:px-10">
+      <div className="flex flex-col px-4 md:px-5 lg:px-10 grow">
         <Header />
         <Router />
       </div>
