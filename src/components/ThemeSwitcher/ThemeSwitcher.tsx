@@ -13,7 +13,7 @@ const ThemeSwitcher = memo(() => {
       onClick={toggleTheme}
       square
       round
-      className="bg-sky-200 dark:bg-slate-900 hover:bg-amber-400 hover:dark:dark:bg-[#04060C]"
+      className="bg-[#CFE3FC] dark:bg-slate-900 hover:bg-amber-400 hover:dark:dark:bg-[#04060C]"
     >
       {
         theme === Theme.LIGHT ? (

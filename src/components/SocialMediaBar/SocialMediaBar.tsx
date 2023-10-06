@@ -42,7 +42,10 @@ const SocialMediaBar: FC = memo(() => {
     <div className="flex lg:ml-auto gap-4">
       {
         socialMedias.map(media => (
-          <Link to={media.link}>
+          <Link
+            to={media.link}
+            key={media.title}
+          >
             <Button
               round
               square
