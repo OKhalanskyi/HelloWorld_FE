@@ -6,7 +6,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
-  onChange?: (value: string) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: FC<InputProps> = memo((props) => {
@@ -30,9 +30,6 @@ const Input: FC<InputProps> = memo((props) => {
     }
   }, [autoFocus]);
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
-  };
   const onBlur = useCallback(() => {
     setIsFocused(false);
   }, []);
@@ -46,7 +43,7 @@ const Input: FC<InputProps> = memo((props) => {
       ref={inputRef}
       value={value}
       type={type}
-      onChange={onChangeHandler}
+      onChange={onChange}
       placeholder={placeholder}
       className={classNames('h-14 md:h-[60px] lg:h-16 rounded-xl dark:bg-slate-900 outline-0 bg-search bg-no-repeat pl-16 dark:text-slate-100 text-slate-900 bg-[#CFE3FC]', {
         "border dark:border-sky-200 border-sky-800": isFocused

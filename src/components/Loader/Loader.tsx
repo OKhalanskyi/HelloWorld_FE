@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 const Loader: FC = () => {
   return (
-    <div className="flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-50">
+    <div className="flex justify-center items-center fixed z-10 left-0 right-0 top-0 bottom-0 bg-black bg-opacity-50">
       <svg width="105" height="105" viewBox="0 0 105 105" xmlns="http://www.w3.org/2000/svg" fill="#fff">
         <circle cx="12.5" cy="12.5" r="12.5">
           <animate attributeName="fill-opacity"

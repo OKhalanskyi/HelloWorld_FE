@@ -3,13 +3,21 @@ import { fetchMoviesByQuery } from '@/app/store/asyncThunks/fetchMoviesByQuery.t
 import { IMovie } from '@/models/IMovie.ts';
 
 export interface MovieSchema {
-  data?: IMovie[]
+  search: string
+  lastSearch: string
+  movies?: IMovie[]
+  totalPages?: number
+  totalMovies?: number
   isLoading: boolean
   error?: string
 }
 
 const initialState: MovieSchema = {
-  data: undefined,
+  search: '',
+  lastSearch: '',
+  totalPages: undefined,
+  totalMovies: undefined,
+  movies: undefined,
   isLoading: false,
   error: undefined
 }
@@ -17,7 +25,14 @@ const initialState: MovieSchema = {
 export const movieSlice = createSlice({
   name: 'movie',
   initialState,
-  reducers: {},
+  reducers: {
+    setSearch: (state, action) => {
+      state.search = action.payload
+    },
+    setLastSearch: (state, action) => {
+      state.lastSearch = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMoviesByQuery.pending, (state) => {
@@ -26,9 +41,11 @@ export const movieSlice = createSlice({
       .addCase(fetchMoviesByQuery.fulfilled, (state, action) => {
         state.isLoading = false
 
-        const { movies } = action.payload
+        const { movies, totalPages, totalMovies } = action.payload
 
-        state.data = movies
+        state.totalPages = totalPages
+        state.totalMovies = totalMovies
+        state.movies = movies
       })
       .addCase(fetchMoviesByQuery.rejected, (state) => {
         state.isLoading = false

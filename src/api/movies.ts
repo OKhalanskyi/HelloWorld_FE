@@ -7,6 +7,6 @@ export type MoviesByQueryResponse = {
   totalMovies: number
 }
 
-export const getMoviesByQuery = (query: string, page: number) => {
+export const getMoviesByQuery = (query: string, page: string) => {
   return client.get<MoviesByQueryResponse>(`/movies?query=${query}&page=${page}`)
 }
