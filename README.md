@@ -6,7 +6,7 @@
 * _TypeScript_
 * _Redux-Toolkit_
 * _Vite_
-* _Tailwind_ (css modules)
+* _Tailwind_
 * _react-router-dom_ as a router
 
 3) ## Project Structure
