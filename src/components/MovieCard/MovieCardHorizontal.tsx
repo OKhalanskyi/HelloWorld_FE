@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IMovie } from '@/models/IMovie.ts';
 import { getMovieByIdPath } from '@/shared/constants/getRoutes.ts';
 import Star from '@/shared/assets/Star.tsx';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 type MovieCardHorizontalProps = {
   movie: IMovie,
@@ -19,10 +19,15 @@ const MovieCardHorizontal: FC<MovieCardHorizontalProps> = ({ movie }) => {
     image
   } = movie
 
+  const [searchParams] = useSearchParams()
+
   const genresStr = genres.map(genre => genre.name).join(', ')
 
   return (
-    <Link to={getMovieByIdPath(String(id))}>
+    <Link to={{
+      pathname: getMovieByIdPath(String(id)),
+      search: searchParams.toString()
+    }}>
       <article className='flex bg-[#CFE3FC] dark:bg-[#04060C] rounded-2xl'>
         <img
           className="w-28 h-40 rounded-l-2xl"

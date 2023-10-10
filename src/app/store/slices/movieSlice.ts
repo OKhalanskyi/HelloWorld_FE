@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchMoviesByQuery } from '@/app/store/asyncThunks/fetchMoviesByQuery.ts';
-import { IMovie } from '@/models/IMovie.ts';
+import { IMovie, IMovieWithDetails } from '@/models/IMovie.ts';
 
 export interface MovieSchema {
   search: string
@@ -10,7 +10,8 @@ export interface MovieSchema {
   totalMovies?: number
   isLoading: boolean
   error?: string,
-  layoutType: 'vertical' | 'horizontal'
+  layoutType: 'vertical' | 'horizontal',
+  chosenMovie?: IMovieWithDetails
 }
 
 const initialState: MovieSchema = {
@@ -21,7 +22,8 @@ const initialState: MovieSchema = {
   movies: undefined,
   isLoading: false,
   error: undefined,
-  layoutType: 'vertical'
+  layoutType: 'vertical',
+  chosenMovie: undefined
 }
 
 export const movieSlice = createSlice({
