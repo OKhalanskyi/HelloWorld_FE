@@ -25,8 +25,8 @@ const Pagination: FC = () => {
   return (
     <div className="flex flex-col md:flex-row md:justify-between mb-8 md:mb-10 lg:mb-20 gap-3">
       <p className="text-center dark:text-slate-200 text-slate-900">
-        Showing 1 to 24 of&nbsp;
-        <span className="text-amber-400">{totalMovies} &nbsp;</span>
+        Showing {1 + 24 * (Number(pageQuery) - 1)} to {24 + 24 * (Number(pageQuery) - 1)} of&nbsp;
+        <span className="text-amber-400">{totalMovies}&nbsp;</span>
         results
       </p>
 

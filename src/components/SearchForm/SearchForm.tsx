@@ -40,6 +40,7 @@ const SearchForm: FC = memo(() => {
         </label>
 
         <Input
+          required
           id="search-input"
           value={search}
           onChange={(event) => dispatch(movieActions.setSearch(event.target.value))}

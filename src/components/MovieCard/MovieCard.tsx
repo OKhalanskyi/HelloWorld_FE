@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { getMovieByIdPath } from '@/shared/constants/getRoutes.ts';
 
 type MovieCardProps = {
-  movie: IMovie
+  movie: IMovie,
 }
 
 const MovieCard: FC<MovieCardProps> = ({ movie }) => {
@@ -23,7 +23,7 @@ const MovieCard: FC<MovieCardProps> = ({ movie }) => {
 
   return (
     <Link to={getMovieByIdPath(String(id))}>
-      <article className="flex flex-col gap-1 relative">
+      <article className='flex flex-col gap-1 relative'>
         <div
           className="leading-6 absolute rounded-r-lg h-6 top-8 bg-[#DBEAFE] dark:bg-[#070B15] text-xs px-2 dark:text-slate-200 text-slate-900"
         >

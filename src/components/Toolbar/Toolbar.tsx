@@ -1,15 +1,17 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { Button } from '@/shared/ui-kit/button/Button.tsx';
 import Horizontal from '@/shared/assets/Horizontal.tsx';
 import Vertical from '@/shared/assets/Vertical.tsx';
 import * as classNames from 'classnames';
-import { useAppSelector } from '@/shared/hooks/redux-hooks.ts';
-import { selectTotalMovies } from '@/app/store/selectors/movieSelectors.ts';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks.ts';
+import { selectLayoutType, selectTotalMovies } from '@/app/store/selectors/movieSelectors.ts';
+import { movieActions } from '@/app/store/slices/movieSlice.ts';
 
 const Toolbar: FC = () => {
   const totalMovies = useAppSelector(selectTotalMovies)
 
-  const [layoutType, setLayoutType] = useState<'horizontal'| 'vertical'>('vertical')
+  const dispatch = useAppDispatch()
+  const layoutType = useAppSelector(selectLayoutType)
 
   return (
     <div className="flex w-full justify-between dark:text-slate-200 text-slate-900">
@@ -23,7 +25,7 @@ const Toolbar: FC = () => {
         layout:
 
         <Button
-          onClick={() => setLayoutType('vertical')}
+          onClick={() => dispatch(movieActions.setLayoutType('vertical'))}
           square
           round
           className={classNames('h-8 w-8', {
@@ -35,7 +37,7 @@ const Toolbar: FC = () => {
         </Button>
 
         <Button
-          onClick={() => setLayoutType('horizontal')}
+          onClick={() => dispatch(movieActions.setLayoutType('horizontal'))}
           square
           round
           className={classNames('h-8 w-8', {

@@ -31,7 +31,7 @@ const MovieWidget: FC = () => {
   }
 
   return (
-    <div className="flex max-w-6xl flex-col gap-8">
+    <div className="flex max-w-6xl flex-col gap-8 w-full">
       <Toolbar />
 
       <MovieList movies={movies}/>

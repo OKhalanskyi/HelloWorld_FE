@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchMoviesByQuery } from '@/app/store/asyncThunks/fetchMoviesByQuery.ts';
 import { IMovie } from '@/models/IMovie.ts';
 
@@ -9,7 +9,8 @@ export interface MovieSchema {
   totalPages?: number
   totalMovies?: number
   isLoading: boolean
-  error?: string
+  error?: string,
+  layoutType: 'vertical' | 'horizontal'
 }
 
 const initialState: MovieSchema = {
@@ -19,7 +20,8 @@ const initialState: MovieSchema = {
   totalMovies: undefined,
   movies: undefined,
   isLoading: false,
-  error: undefined
+  error: undefined,
+  layoutType: 'vertical'
 }
 
 export const movieSlice = createSlice({
@@ -32,6 +34,9 @@ export const movieSlice = createSlice({
     setLastSearch: (state, action) => {
       state.lastSearch = action.payload
     },
+    setLayoutType: (state, action: PayloadAction<'vertical' | 'horizontal'>) => {
+      state.layoutType = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
