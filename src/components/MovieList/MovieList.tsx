@@ -3,7 +3,7 @@ import { IMovie } from '@/models/IMovie.ts';
 import MovieCard from '@/components/MovieCard/MovieCard.tsx';
 import { useAppSelector } from '@/shared/hooks/redux-hooks.ts';
 import { selectLayoutType } from '@/app/store/selectors/movieSelectors.ts';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 import MovieCardHorizontal from '@/components/MovieCard/MovieCardHorizontal.tsx';
 
 type MovieListProps = {

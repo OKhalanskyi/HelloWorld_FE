@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, InputHTMLAttributes, memo, useCallback, useEffect, useRef, useState } from 'react';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 

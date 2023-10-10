@@ -1,7 +1,7 @@
 import {
   FC, ButtonHTMLAttributes, memo, ReactNode,
 } from 'react';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
   className?: string;

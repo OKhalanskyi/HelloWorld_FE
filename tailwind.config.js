@@ -9,7 +9,7 @@ export default {
     extend: {
       backgroundImage:
         {
-          'search': "url('./src/shared/assets/search.svg')"
+          'search': "url('../../src/shared/assets/search.svg')"
         },
     },
   },

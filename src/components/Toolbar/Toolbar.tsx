@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Button } from '@/shared/ui-kit/button/Button.tsx';
 import Horizontal from '@/shared/assets/Horizontal.tsx';
 import Vertical from '@/shared/assets/Vertical.tsx';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks.ts';
 import { selectLayoutType, selectTotalMovies } from '@/app/store/selectors/movieSelectors.ts';
 import { movieActions } from '@/app/store/slices/movieSlice.ts';

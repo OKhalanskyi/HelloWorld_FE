@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 const Horizontal: FC<{isActive: boolean}> = memo(({ isActive }) => {
   return (
