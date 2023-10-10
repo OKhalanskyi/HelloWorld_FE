@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark {
+    --background-color: #070B15;
+}
+
+.light {
+    --background-color: #DBEAFE;
+}
+
+:root {
+    background: var(--background-color);
+}
