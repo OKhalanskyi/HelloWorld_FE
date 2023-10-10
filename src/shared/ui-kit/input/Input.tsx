@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, InputHTMLAttributes, memo, useCallback, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
+import searchSvg from '@/shared/assets/search.svg';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -45,10 +46,10 @@ const Input: FC<InputProps> = memo((props) => {
       type={type}
       onChange={onChange}
       placeholder={placeholder}
-      className={classNames('h-14 md:h-[60px] lg:h-16 rounded-xl dark:bg-slate-900 outline-0 bg-search bg-no-repeat pl-16 dark:text-slate-100 text-slate-900 bg-[#CFE3FC]', {
+      className={classNames('h-14 md:h-[60px] lg:h-16 rounded-xl dark:bg-slate-900 outline-0 bg-no-repeat pl-16 dark:text-slate-100 text-slate-900 bg-[#CFE3FC]', {
         "border dark:border-sky-200 border-sky-800": isFocused
       }, [className])}
-      style={{backgroundPosition: '24px'}}
+      style={{backgroundPosition: '24px', backgroundImage: `url(${searchSvg})`}}
       onFocus={onFocus}
       onBlur={onBlur}
       {...otherProps}
