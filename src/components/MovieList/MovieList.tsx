@@ -21,9 +21,9 @@ const MovieList: FC<MovieListProps> = ({ movies }) => {
       {
         movies?.map(movie => (
           layoutType === 'vertical' ? (
-            <MovieCard movie={movie} />
+            <MovieCard movie={movie} key={movie.id}/>
           ) : (
-            <MovieCardHorizontal movie={movie} />
+            <MovieCardHorizontal movie={movie} key={movie.id}/>
           )
         ))
       }
