@@ -18,4 +18,6 @@
 * **models** - description of entities
 * **shared** - reusable code that is not relevant to logic (hooks, assets, utils)
 
-4) using husky and eslint / prettiter for comfortable development
+4) ### using husky and eslint / prettiter for comfortable development
+
+5) ## [Deployment](https://hello-world-fe.vercel.app/)
